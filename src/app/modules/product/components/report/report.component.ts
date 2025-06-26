@@ -13,9 +13,9 @@ export class ReportComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {
     // Replace with your SSRS Report Server URL
     this.reportUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      'http://localhost/ReportServer?/InventoryReports/ProductListReport&rs:Command=Render'
+      'http://novel_laptop/ReportServer?/InventoryReports/ProductListReport&rs:Command=Render'
     );
-    this.downloadUrl = 'https://localhost:7187/api/Report/export'; // Replace with your API URL
+    this.downloadUrl = 'https://localhost:7161/api/Report/export'; // Replace with your API URL
   }
 
   ngOnInit(): void {}
