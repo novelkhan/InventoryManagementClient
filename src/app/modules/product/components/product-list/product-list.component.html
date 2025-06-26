@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Product List</h2>
+  <div class="add-product">
+    <h3>Add New Product</h3>
+    <form #productForm="ngForm" (ngSubmit)="addProduct()">
+      <div>
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="newProduct.productName" name="productName" required>
+      </div>
+      <div>
+        <label>Category:</label>
+        <input type="text" [(ngModel)]="newProduct.category" name="category">
+      </div>
+      <div>
+        <label>Stock Quantity:</label>
+        <input type="number" [(ngModel)]="newProduct.stockQuantity" name="stockQuantity" required>
+      </div>
+      <div>
+        <label>Unit Price:</label>
+        <input type="number" [(ngModel)]="newProduct.unitPrice" name="unitPrice" required>
+      </div>
+      <button type="submit" [disabled]="!productForm.valid">Add Product</button>
+    </form>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Stock</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productId }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.stockQuantity }}</td>
+        <td>{{ product.unitPrice | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
